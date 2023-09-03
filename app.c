@@ -23,7 +23,6 @@ int main(int argc, const char** argv) {
 void *memory_alloc(unsigned int size) {
     void *pointer;
 
-    if (size < 1) size = 1;
     if ((pointer = (void*)malloc(size * sizeof(void))) == NULL)
         perror("Failed to allocate memory inside the pointer");
 
