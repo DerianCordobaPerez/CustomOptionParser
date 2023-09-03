@@ -8,7 +8,7 @@ typedef char* string;
 void *memory_alloc(unsigned int);
 
 int main(int argc, const char** argv) {
-    string option_test = (string)memory_alloc(50);
+    string option_test = (string) memory_alloc(50 * sizeof(char));
     strcpy(option_test, "This is a test");
 
     printf("String: %s\n", option_test);
@@ -23,7 +23,7 @@ int main(int argc, const char** argv) {
 void *memory_alloc(unsigned int size) {
     void *pointer;
 
-    if ((pointer = (void*)malloc(size * sizeof(void))) == NULL)
+    if ((pointer = malloc(size)) == NULL)
         perror("Failed to allocate memory inside the pointer");
 
     return pointer;
